@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<div class="page-layout">
+  <div class="login-layout">
+    <img src="assets/img/logo2.jpg" alt="" class="logo">
+    <span class="header">Login</span>
+    <form class="example-form login-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Enter your email...">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Enter your password...">
+      </mat-form-field>
+      <button class="btn-login">Sign in</button>
+    </form>
+    <div class="next-layout" (click)="openregistraion()">
+      <i class="fa-regular fa-plus icon-plus"></i>
+    </div>
+  </div>
+
+  <!--registration layout-->
+  <div class="registration-layout hidden">
+    <img src="assets/img/logo2.jpg" alt="" class="logo">
+    <span class="header">Registration</span>
+    <form class="example-form login-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Enter your email...">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Enter your password...">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input type="password" matInput placeholder="Enter your password again...">
+      </mat-form-field>
+      <button class="btn-login">Sign up</button>
+    </form>
+    <div class="next-layout" (click)="openLogin()">
+      <i class="fa-solid fa-rotate-left icon-return"></i>
+    </div>
+  </div>
+
+</div>
