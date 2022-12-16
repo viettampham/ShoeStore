@@ -2,16 +2,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 <div class="page-layout">
   <div class="login-layout">
-    <img src="assets/img/logo2.jpg" alt="" class="logo">
+    <img src="../../../assets/img/logo2.jpg" alt="" class="logo">
     <span class="header">Login</span>
-    <form class="example-form login-form">
+    <form class="example-form login-form" [formGroup]="LoginForm" (submit)="Login()">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="Enter your email...">
+        <input type="email" matInput placeholder="Enter your email..." formControlName="username">
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Enter your password...">
+        <input type="password" matInput placeholder="Enter your password..." formControlName="password">
       </mat-form-field>
       <button class="btn-login">Sign in</button>
     </form>
@@ -22,20 +22,28 @@
 
   <!--registration layout-->
   <div class="registration-layout hidden">
-    <img src="assets/img/logo2.jpg" alt="" class="logo">
+    <img src="../../../assets/img/logo2.jpg" alt="" class="logo">
     <span class="header">Registration</span>
-    <form class="example-form login-form">
+    <form class="example-form login-form" [formGroup]="SigninForm" (submit)="Signin()">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="Enter your email...">
+        <input type="email" matInput placeholder="Enter your email..." formControlName="username">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput placeholder="Enter your name..." formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <input type="email" matInput placeholder="Enter your address..." formControlName="address">
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Enter your password...">
+        <input type="password" matInput placeholder="Enter your password..." formControlName="password">
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Confirm Password</mat-label>
-        <input type="password" matInput placeholder="Enter your password again...">
+        <input type="password" matInput placeholder="Enter your password again..." formControlName="confirmpassword">
       </mat-form-field>
       <button class="btn-login">Sign up</button>
     </form>
