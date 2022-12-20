@@ -29,10 +29,35 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const loginLayout = document.querySelector('.login-layout');
+    const regisLayout = document.querySelector('.registration-layout');
+    const btnPlus = document.querySelector('.icon-plus');
+    const btnReturn = document.querySelector('.icon-return');
+
+    // @ts-ignore
+    btnPlus.addEventListener('click', openRegistration)
+    // @ts-ignore
+    btnReturn.addEventListener('click', openLogin)
+    function openRegistration() {
+      // @ts-ignore
+      loginLayout.classList.add('hidden')
+      // @ts-ignore
+      regisLayout.classList.remove('hidden')
+      // @ts-ignore
+      regisLayout.classList.add('appear')
+    }
+    function openLogin() {
+      // @ts-ignore
+      regisLayout.classList.add('hidden')
+      // @ts-ignore
+      loginLayout.classList.remove('hidden')
+      // @ts-ignore
+      loginLayout.classList.add('appear')
+    }
   }
 
 
-  openregistraion() {
+  /*openregistraion() {
     const loginLayout = document.querySelector('.login-layout');
     const regisLayout = document.querySelector('.registration-layout');
     const btnPlus = document.querySelector('.icon-plus');
@@ -66,7 +91,7 @@ export class LoginComponent implements OnInit {
       // @ts-ignore
       loginLayout.classList.add('appear')
     }
-  }
+  }*/
 
 
   Login() {

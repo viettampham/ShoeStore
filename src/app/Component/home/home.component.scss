@@ -4,8 +4,13 @@
   font-family: 'Quicksand', sans-serif;
   transition: 0.4s;
 }
-@keyframes bell {
-
+@keyframes up {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
 }
 @keyframes fall {
   from{
@@ -540,6 +545,18 @@
           }
         }
       }
+    }
+  }
+  .icon-start{
+    @apply px-6 py-4 text-xl text-white;
+    border-radius: 50%;
+    background-color: #ff7675;
+    position: fixed;
+    bottom: 80px;
+    right: 0;
+    cursor: pointer;
+    &:hover .icon{
+      animation: up 0.5s infinite linear;
     }
   }
 }

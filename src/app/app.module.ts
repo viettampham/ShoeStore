@@ -12,6 +12,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { ShopComponent } from './Component/shop/shop.component';
 import { IntroduceComponent } from './Component/introduce/introduce.component';
 import { CartComponent } from './Component/cart/cart.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { DialogDetailProductComponent } from './Component/dialog/dialog-detail-product/dialog-detail-product.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatTableModule} from "@angular/material/table";
+import { PaymentComponent } from './Component/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -20,17 +25,22 @@ import { CartComponent } from './Component/cart/cart.component';
     HomeComponent,
     ShopComponent,
     IntroduceComponent,
-    CartComponent
+    CartComponent,
+    DialogDetailProductComponent,
+    PaymentComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatSidenavModule,
+        MatDialogModule,
+        MatTableModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

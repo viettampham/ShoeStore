@@ -1,0 +1,80 @@
+*{
+  scroll-behavior: smooth;
+  font-family: 'Quicksand', sans-serif;
+}
+.disable{
+  cursor: not-allowed;
+}
+.enable{
+  cursor: pointer;
+}
+mat-dialog-content{
+  width: 100%;
+  height: 55%;
+  margin: auto;
+  .dialog{
+    @apply flex flex-row justify-evenly items-start gap-8;
+    position: relative;
+    .img-dialog-product{
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      .img-product{
+
+      }
+    }
+    .info-dialog-product{
+      flex: 2;
+      @apply py-8;
+      .product-name{
+        @apply text-3xl;
+        color: #636e72;
+      }
+      .product-descript{
+        @apply font-thin text-base mt-8;
+        color: #2d3436;
+      }
+      .brand{
+        @apply text-base font-thin;
+      }
+      .price{
+        @apply text-base font-thin;
+      }
+      .add-quantity{
+        @apply  py-4 ml-5;
+        border-radius: 4px;
+        background-color: #dfe6e9;
+        .btn-change-quantity{
+          @apply text-lg px-5 py-2;
+          &:hover{
+            opacity: 0.3;
+          }
+        }
+        .num{
+          @apply  px-5 py-2;
+          border-left: 1px solid black;
+          border-right: 1px solid black;
+        }
+      }
+      .add-in-quantity{
+        @apply m-auto text-lg px-3 py-2;
+        border-radius: 4px;
+        color: #ff7675;
+        background-color: #2d3436;
+        &:hover{
+          background-color: #ff7675;
+          color: #2d3436;
+        }
+      }
+    }
+  }
+  .closeDialog{
+    @apply text-lg px-3 py-1;
+    background-color: #ff7675;
+    color: white;
+    border-radius: 20px;
+    position: absolute;
+    top: 12%;
+    right: 8%;
+  }
+}

@@ -1,16 +1,7 @@
+/*Animation*/
 *{
   scroll-behavior: smooth;
   font-family: 'Quicksand', sans-serif;
-  transition: 0.4s;
-}
-tr{
-  border-bottom: 1px solid #dfe6e9;
-}
-.disable{
-  cursor: not-allowed;
-}
-.enable{
-  cursor: pointer;
 }
 @keyframes up {
   from {
@@ -37,6 +28,13 @@ tr{
   to {
     transform: scale(1.2)
   }
+}
+.icon-sidebar{
+  @apply text-3xl;
+  color: #2d3436;
+  &:hover{
+    opacity: 0.5;
+  };
 }
 @keyframes letright {
   from{
@@ -114,87 +112,7 @@ tr{
     }
   }
   .body{
-    padding: 0 12%;
-    .space-cart{
-      @apply py-5;
 
-      .header-space-cart{
-        @apply mt-8 text-3xl;
-        color: #2d3436;
-      }
-      .table-cart-product{
-        @apply mt-5 h-full w-full;
-        .title-table{
-          @apply grid grid-cols-10 gap-1;
-        }
-        .item-table{
-          overflow: hidden;
-          padding: 10px 0 20px 0;
-          @apply my-3 grid grid-cols-10 gap-1;
-          .col-product{
-            @apply flex flex-row justify-evenly items-start;
-            .img{
-              width: 100px;
-              height: 100px;
-              border: 1px solid #74b9ff;
-              border-radius: 4px;
-            }
-            .name-product{
-              @apply text-xl;
-              color: #b2bec3;
-            }
-          }
-          .col-quantity-product{
-            @apply flex justify-center items-center;
-            .group-change-quantity{
-              @apply text-white flex flex-row justify-evenly items-center;
-              background-color: #b2bec3;
-              border-radius: 4px;
-              padding: 2px 0;
-              .btn-change-quantity{
-                @apply px-3 py-2 text-lg;
-              }
-              .display-num{
-                @apply px-3 py-2 text-lg;
-                border-right: 1px solid #dfe6e9;
-                border-left: 1px solid #dfe6e9;
-              }
-            }
-          }
-        }
-      }
-      .group-total-money{
-        @apply flex flex-row justify-end items-center px-3 py-5;
-        .title-total{
-          @apply text-xl;
-        }
-        .total-money{
-          @apply text-xl;
-          margin-left: 10%;
-          color: #ff7675;
-        }
-      }
-      .group-btn{
-        @apply flex flex-row py-3 justify-between items-center;
-        .btn{
-          @apply text-xl text-white px-5 py-2 rounded-full;
-        }
-        .btn-continue-shop{
-          background-color: #2d3436;
-          &:hover{
-            background-color: white;
-            color: #2d3436;
-          }
-        }
-        .btn-payment{
-          background-color: #ff7675;
-          &:hover{
-            background-color: white;
-            color: #ff7675;
-          }
-        }
-      }
-    }
   }
   .footer{
     @apply text-white p-5;
@@ -254,18 +172,6 @@ tr{
           }
         }
       }
-    }
-  }
-  .icon-start{
-    @apply px-6 py-4 text-xl text-white;
-    border-radius: 50%;
-    background-color: #ff7675;
-    position: fixed;
-    bottom: 80px;
-    right: 0;
-    cursor: pointer;
-    &:hover .icon{
-      animation: up 0.5s infinite linear;
     }
   }
 }

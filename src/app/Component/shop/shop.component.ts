@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {DialogDetailProductComponent} from "../dialog/dialog-detail-product/dialog-detail-product.component";
 
 @Component({
   selector: 'app-shop',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
+  opened = false;
 
-  constructor() { }
+  constructor(private dialog:MatDialog ) { }
 
   ngOnInit(): void {
+
   }
 
+  openDialogAdd() {
+    this.dialog.open(DialogDetailProductComponent)
+  }
 }
