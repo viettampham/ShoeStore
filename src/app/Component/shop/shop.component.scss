@@ -2,6 +2,13 @@
 *{
   scroll-behavior: smooth;
   font-family: 'Quicksand', sans-serif;
+  transition: 0.4s;
+}
+.hidden{
+  display:none;
+}
+.appear{
+  display: block;
 }
 @keyframes up {
   from {
@@ -32,10 +39,33 @@
 .icon-sidebar{
   @apply text-3xl;
   color: #2d3436;
+  position: relative;
   &:hover{
     opacity: 0.5;
-  };
+  }
+  /*&::after{
+    position: absolute;
+   display: block;
+    width: 4px;
+    height: 100%;
+    content: " ";
+    background-color: black;
+    top: 0;
+    left: -20px;
+  }*/
 }
+
+.icon-arrow{
+  @apply text-3xl;
+  color: #2d3436;
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  &:hover{
+    opacity: 0.5;
+  }
+}
+
 @keyframes letright {
   from{
     transform: translateX(-10px);
@@ -145,7 +175,7 @@
                       &:hover{
                         color: #ff7675;
                         opacity: 0.6;
-                        padding: 0 4px;
+                        padding: 4px 4px;
                       }
                     }
                   }
@@ -170,7 +200,7 @@
               }
             }
             .space-display-product{
-              @apply grid grid-cols-5 gap-5 mt-8 px-4;
+              @apply grid grid-cols-4 gap-5 mt-8 px-4;
               .product{
                 border-radius: 8px;
                 overflow: hidden;

@@ -14,7 +14,7 @@ import { IntroduceComponent } from './Component/introduce/introduce.component';
 import { CartComponent } from './Component/cart/cart.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { DialogDetailProductComponent } from './Component/dialog/dialog-detail-product/dialog-detail-product.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import { PaymentComponent } from './Component/payment/payment.component';
 

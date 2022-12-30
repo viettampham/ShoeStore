@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, InjectionToken, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {Product} from "../../../Models/Product";
+import {ShopComponent} from "../../shop/shop.component";
+import {ApiService} from "../../../Services/api.service";
 
 @Component({
   selector: 'app-dialog-detail-product',
@@ -7,10 +10,15 @@ import {MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./dialog-detail-product.component.scss']
 })
 export class DialogDetailProductComponent implements OnInit {
-
-  constructor(private MatdialogRef:MatDialogRef<DialogDetailProductComponent>) { }
-
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,
+              private api:ApiService,
+              private dialogRef:MatDialogRef<DialogDetailProductComponent>) { }
+  product : Product = this.data;
   ngOnInit(): void {
+    this.api.GetProductById(this.data).subscribe(res=>{
+      this.product = res
+      console.log(this.product)
+    })
     const btnPlus = document.querySelector('.plus');
     const btnMinus = document.querySelector('.minus');
     const displaynum = document.querySelector('.num');
@@ -30,7 +38,6 @@ export class DialogDetailProductComponent implements OnInit {
       displaynum.innerText = quantity
       // @ts-ignore
       btnMinus.classList.remove('disable')
-      console.log(quantity)
     })
     // @ts-ignore
     btnMinus.addEventListener('click',()=>{
@@ -46,40 +53,14 @@ export class DialogDetailProductComponent implements OnInit {
         // @ts-ignore
         displaynum.innerText = quantity;
       }
-      console.log(quantity)
     })
   }
-
-  /*plus() {
-    const btnPlus = document.querySelector('.plus');
-    const displaynum = document.querySelector('.num');
-    let data:number = 0;
-    // @ts-ignore
-    btnPlus.addEventListener('click',()=>{
-      data=data+1;
-      // @ts-ignore
-      displaynum.innerText = data
-      console.log(data)
-    })
-
-  }
-
-  minus() {
-    const btnMinus = document.querySelector('.minus');
-    const displaynum = document.querySelector('.num');
-    let data:number = 0;
-    // @ts-ignore
-    btnMinus.addEventListener('click',()=>{
-      data=data-1;
-      // @ts-ignore
-      displaynum.innerText = data
-      console.log(data)
-    })
-
-  }*/
 
 
   closeDialog() {
-      this.MatdialogRef.close()
+      this.dialogRef.close()
   }
+
+
+
 }

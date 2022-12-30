@@ -1,17 +1,14 @@
 <mat-dialog-content class="mat-typography">
   <div class="dialog">
     <div class="img-dialog-product">
-      <img class="img-product" src="http://localhost:1235/sp1.jpg" alt="">
+      <img class="img-product" src="{{product.image_url}}" alt="">
     </div>
     <div class="info-dialog-product">
-      <p class="product-name">Nike air force 1</p>
-      <p class="product-descript">Kiểu dáng: Giày thể thao
-        Giới tính: Unisex
-        Màu sắc: Trắng
-        Chất liệu: Da cao cấp</p>
-      <p class="brand">Brand: Nike</p>
-      <p class="brand">Size: 43</p>
-      <p class="price">Price: 4000000<span>VND</span></p>
+      <p class="product-name">{{product.title}}</p>
+      <p class="product-descript">{{product.description}}</p>
+      <p class="brand">Brand: {{product.brand}}</p>
+      <p class="brand">Size: {{product.size}}</p>
+      <p class="price">Price: {{product.price}}<span>VND</span></p>
       <span class="">
         <span class="text-base">Số lượng:</span>
         <span class="add-quantity">

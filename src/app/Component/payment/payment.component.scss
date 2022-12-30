@@ -2,6 +2,7 @@
 *{
   scroll-behavior: smooth;
   font-family: 'Quicksand', sans-serif;
+  transition: 0.4s;
 }
 @keyframes up {
   from {
@@ -112,7 +113,94 @@
     }
   }
   .body{
-
+    .space-payment{
+      @apply grid grid-cols-2 gap-5;
+      margin: auto;
+      padding: 12px 10%;
+      height: 500px;
+      .content-left{
+        @apply p-5;
+        border-radius: 12px;
+        border: 2px dashed gray;
+        .inside-content-left{
+          .title-content-letft{
+            @apply text-3xl text-center;
+            color: #636e72;
+          }
+        }
+      }
+      .content-right{
+        @apply p-5;
+        .inside-content-right{
+          .title-content-right{
+            @apply text-3xl font-thin text-center;
+            color: #636e72;
+          }
+          .over-view{
+            .detail-order{
+              @apply my-5 px-3 flex flex-row justify-between items-center;
+              position: relative;
+              .img-detail-order{
+                width: 60px;
+                height: 60px;
+                border-radius: 4px;
+                border: 1px dashed rgba(171, 174, 175, 0.65);
+              }
+              .name-product-detail-order{
+                @apply text-xl;
+                color: #636e72;
+              }
+              .price-product-detail-order{
+                @apply text-xl;
+                color: #636e72;
+              }
+            }
+            .quantity-product-order{
+              padding: 0px 7px;
+              background-color: cornflowerblue;
+              border: 1px solid black;
+              border-radius: 100%;
+              color: white;
+              font-size: 12px;
+              position: absolute;
+              top: -10px;
+              left: 10%;
+            }
+          }
+          .total-payment{
+            padding: 12px;
+            float: right;
+            font-size: 20px;
+            border-top: 1px dashed #636e72;
+            .total-money{
+              color: #ff7675;
+            }
+          }
+          .group-btn{
+            @apply w-full flex flex-row justify-between items-center mt-5 px-5;
+            .btn{
+              @apply text-lg px-5 py-2 rounded-full;
+            }
+            .btn-continue-shop{
+              background-color: #636e72;
+              color: white;
+              &:hover{
+                color: #636e72;
+                background-color: white;
+              }
+            }
+            .btn-order{
+              background-color: #ff7675;
+              color: white;
+              &:hover{
+                color: #ff7675;
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
+    }
   }
   .footer{
     @apply text-white p-5;
