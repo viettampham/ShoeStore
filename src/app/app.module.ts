@@ -17,6 +17,9 @@ import { DialogDetailProductComponent } from './Component/dialog/dialog-detail-p
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import { PaymentComponent } from './Component/payment/payment.component';
+import { InfotranferComponent } from './Component/infotranfer/infotranfer.component';
+import { BillComponent } from './Component/bill/bill.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { PaymentComponent } from './Component/payment/payment.component';
     IntroduceComponent,
     CartComponent,
     DialogDetailProductComponent,
-    PaymentComponent
+    PaymentComponent,
+    InfotranferComponent,
+    BillComponent
   ],
     imports: [
         BrowserModule,
@@ -40,6 +45,7 @@ import { PaymentComponent } from './Component/payment/payment.component';
         MatSidenavModule,
         MatDialogModule,
         MatTableModule,
+        MatButtonModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

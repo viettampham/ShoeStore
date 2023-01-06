@@ -2,12 +2,7 @@
 *{
   scroll-behavior: smooth;
   font-family: 'Quicksand', sans-serif;
-}
-.hidden{
-  display:none;
-}
-.appear{
-  display: block;
+  transition: 0.4s;
 }
 @keyframes up {
   from {
@@ -38,33 +33,10 @@
 .icon-sidebar{
   @apply text-3xl;
   color: #2d3436;
-  position: relative;
   &:hover{
     opacity: 0.5;
-  }
-  /*&::after{
-    position: absolute;
-   display: block;
-    width: 4px;
-    height: 100%;
-    content: " ";
-    background-color: black;
-    top: 0;
-    left: -20px;
-  }*/
+  };
 }
-
-.icon-arrow{
-  @apply text-3xl;
-  color: #2d3436;
-  position: absolute;
-  left: 32px;
-  top: 32px;
-  &:hover{
-    opacity: 0.5;
-  }
-}
-
 @keyframes letright {
   from{
     transform: translateX(-10px);
@@ -141,104 +113,98 @@
     }
   }
   .body{
-    .shop-space-product{
-      @apply h-full;
-      .sidenav{
-        @apply h-full;
-        .sidenav-left{
-          @apply h-full w-1/5 p-5;
-          background-color: #2d3436;
-          .inside-sidenav-left{
-            @apply p-5 h-full;
-            border-radius: 12px;
-            background-color: white;
-            .p-header{
-              @apply text-3xl;
-              color: #2d3436;
-              text-align: center;
-            }
-            .menu-category{
-              @apply mt-8 w-full h-3/5 text-lg;
-              color: #2d3436;
-              .item-menu{
-                @apply my-4 px-3;
-                &:hover{
-                  color: #2d3436;
-                  cursor: pointer;
-                }
-
-                .hidden-section{
-                  display: none;
-                  .hidden-section-menu{
-                    .hiddensection-item{
-                      transition: 0.6s;
-                      &:hover{
-                        color: #ff7675;
-                        opacity: 0.6;
-                        padding: 4px 4px;
-                      }
-                    }
-                  }
-                }
-              }
-              .item-menu:hover .hidden-section{
-                display: block;
-              }
+    .space-payment{
+      @apply grid grid-cols-2 gap-5;
+      margin: auto;
+      padding: 12px 10%;
+      height: 500px;
+      .content-left{
+        @apply p-5;
+        border-radius: 12px;
+        border: 2px dashed gray;
+        .inside-content-left{
+          .title-content-letft{
+            @apply text-3xl text-center;
+            color: #636e72;
+          }
+          .form-info-tranfer{
+            @apply mt-8 px-8;
+            .select-element{
+              @apply w-full text-lg px-5 my-3 py-2;
+              color: #636e72;
+              border: 1px dashed black;
+              border-radius: 4px;
             }
           }
         }
-        .sidenav-right{
-          @apply h-full p-5;
-          background-color: #2d3436;
-          .inside-sidenav-right{
-            @apply h-full p-5 bg-white;
-            border-radius: 12px;
-            .header-space-all-product{
-              @apply flex flex-row justify-between items-center;
-              .title-space-product{
-                @apply text-lg;
+      }
+      .content-right{
+        @apply p-5;
+        .inside-content-right{
+          .title-content-right{
+            @apply text-3xl font-thin text-center;
+            color: #636e72;
+          }
+          .over-view{
+            .detail-order{
+              @apply my-5 px-3 flex flex-row justify-between items-center;
+              position: relative;
+              .img-detail-order{
+                width: 60px;
+                height: 60px;
+                border-radius: 4px;
+                border: 1px dashed rgba(171, 174, 175, 0.65);
+              }
+              .name-product-detail-order{
+                @apply text-xl;
+                color: #636e72;
+              }
+              .price-product-detail-order{
+                @apply text-xl;
+                color: #636e72;
               }
             }
-            .space-display-product{
-              @apply grid grid-cols-4 gap-5 mt-8 px-4;
-              .product{
-                border-radius: 8px;
-                overflow: hidden;
-                cursor: pointer;
-                position: relative;
-                .img-product{
-                }
-                .info-product{
-                  @apply text-white px-4 py-2;
-                  background-color: #2d3436;
-                }
-                .btn-add-product{
-
-                }
-                .model-btn{
-                  @apply w-full h-full flex flex-row justify-evenly items-center;
-                  position: absolute;
-                  transition: 0.5s;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%,-50%);
-                  background-color: rgba(169, 171, 171, 0.53);
-                  display: none;
-                  .btn-add-product{
-                    @apply px-4 py-3 rounded-full text-xl text-white;
-                    background-color: #ff7675;
-                  }
-                  .btn-watch-detail{
-                    @apply px-4 py-3 rounded-full text-xl text-white;
-                    background-color: #2d3436;
-                  }
-                }
+            .quantity-product-order{
+              padding: 0px 7px;
+              background-color: cornflowerblue;
+              border: 1px solid black;
+              border-radius: 100%;
+              color: white;
+              font-size: 12px;
+              position: absolute;
+              top: -10px;
+              left: 10%;
+            }
+          }
+          .total-payment{
+            padding: 12px;
+            float: right;
+            font-size: 20px;
+            border-top: 1px dashed #636e72;
+            .total-money{
+              color: #ff7675;
+            }
+          }
+          .group-btn{
+            @apply w-full flex flex-row justify-between items-center mt-5 px-5;
+            .btn{
+              @apply text-lg px-5 py-2 rounded-full;
+            }
+            .btn-continue-shop{
+              background-color: #636e72;
+              color: white;
+              &:hover{
+                color: #636e72;
+                background-color: white;
               }
-              .product:hover .model-btn{
-                display: flex;
-                transition: 0.5s;
+            }
+            .btn-order{
+              background-color: #ff7675;
+              color: white;
+              &:hover{
+                color: #ff7675;
+                background-color: white;
               }
-
             }
           }
         }

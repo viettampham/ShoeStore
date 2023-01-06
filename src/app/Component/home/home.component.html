@@ -84,46 +84,17 @@
         <a href="shop"><p class="let-store cursor-pointer">Đến cửa hàng <i class="arrow ml-2 fa-solid fa-arrow-right"></i></p></a>
       </div>
       <div class="products">
-        <div class="product">
+        <div class="product" *ngFor="let product of ListProductDisplay">
           <div class="frame-img">
-            <img class="img-product" src="http://localhost:1235/sp3.jpg" alt="sp1">
+            <img class="img-product" src="{{product.image_url}}" alt="sp1">
           </div>
           <div class="description">
-            <span class="title-product">Nike Air Force 1</span>
-            <span class="size"> <span>Size : </span>43</span>
-            <span class="price">4000000<span>.VND</span></span>
+            <span class="title-product">{{product.title}}1</span>
+            <span class="size"> <span>Size : </span>{{product.size}}</span>
+            <span class="price">{{product.displayPrice}}<span>.VND</span></span>
           </div>
         </div>
-        <div class="product">
-          <div class="frame-img">
-            <img class="img-product" src="http://localhost:1235/sp3.jpg" alt="sp1">
-          </div>
-          <div class="description">
-            <span class="title-product">Nike Air Force 1</span>
-            <span class="size"> <span>Size : </span>43</span>
-            <span class="price">4000000<span>.VND</span></span>
-          </div>
-        </div>
-        <div class="product">
-          <div class="frame-img">
-            <img class="img-product" src="http://localhost:1235/sp3.jpg" alt="sp1">
-          </div>
-          <div class="description">
-            <span class="title-product">Nike Air Force 1</span>
-            <span class="size"> <span>Size : </span>43</span>
-            <span class="price">4000000<span>.VND</span></span>
-          </div>
-        </div>
-        <div class="product">
-          <div class="frame-img">
-            <img class="img-product" src="http://localhost:1235/sp3.jpg" alt="sp1">
-          </div>
-          <div class="description">
-            <span class="title-product">Nike Air Force 1</span>
-            <span class="size"> <span>Size : </span>43</span>
-            <span class="price">4000000<span>.VND</span></span>
-          </div>
-        </div>
+
       </div>
 
     </div>

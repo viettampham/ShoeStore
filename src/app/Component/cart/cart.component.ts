@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Cart} from "../../Models/Cart";
+import {ApiService} from "../../Services/api.service";
+import {Order} from "../../Models/Order";
 
 @Component({
   selector: 'app-cart',
@@ -6,23 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-
-  constructor() { }
+  ListOrder:Order[]=[];
+  totalBill:number = 0;
+  displayTotalBill:any;
+  constructor(private api:ApiService) { }
 
   ngOnInit(): void {
+    this.GetOrder()
+
     const allorder = document.querySelectorAll('.item-table');
     allorder.forEach(function (order){
       const btnPlus = order.querySelector('.plus');
       const btnMinus = order.querySelector('.minus');
       const displayNum = order.querySelector('.display-num')
       let num = 1;
-      console.log(allorder)
       // @ts-ignore
       btnPlus.addEventListener('click',()=>{
         num = num+1;
         // @ts-ignore
         btnMinus.classList.remove('disable')
-        console.log(num)
         // @ts-ignore
         displayNum.innerText = num;
       })
@@ -41,9 +46,33 @@ export class CartComponent implements OnInit {
           // @ts-ignore
           displayNum.innerText = num;
         }
-        console.log(num)
       })
     })
+
+  }
+  GetOrder(){
+    this.api.GetOrder().subscribe(res=>{
+      this.ListOrder = res
+      this.ListOrder.forEach(o=>{
+        o.displayTotalMoney = o.totalMoney.toLocaleString('vi',{style:'currency' , currency:'VND'})
+      })
+      /*console.log(this.ListOrder)*/
+      this.ListOrder.forEach(order=>{
+        this.totalBill = this.totalBill + order.totalMoney
+        this.displayTotalBill = this.totalBill.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+        /*console.log(this.displayTotalBill);*/
+
+      })
+    })
+  }
+
+  DeleteOrder(id:string) {
+    if (confirm("Bạn có chắc là không muốn mua sản phẩm này chứ ?")){
+      this.api.DeleteOrder(id).subscribe(res=>{
+        this.GetOrder();
+        location.reload()
+      })
+    }
 
   }
 }

@@ -114,6 +114,7 @@ tr{
     }
   }
   .body{
+    min-height: 500px;
     padding: 0 12%;
     .space-cart{
       @apply py-5;
@@ -132,8 +133,9 @@ tr{
           padding: 10px 0 20px 0;
           @apply my-3 grid grid-cols-10 gap-1;
           .col-product{
-            @apply flex flex-row justify-evenly items-start;
+            @apply flex flex-row justify-items-start items-start;
             .img{
+              @apply mr-5;
               width: 100px;
               height: 100px;
               border: 1px solid #74b9ff;

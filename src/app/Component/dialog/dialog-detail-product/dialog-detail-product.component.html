@@ -13,12 +13,12 @@
         <span class="text-base">Số lượng:</span>
         <span class="add-quantity">
           <button class="btn-change-quantity minus">-</button>
-          <span class="display-quantity num">0</span>
+          <span class="display-quantity num">1</span>
           <button class="btn-change-quantity plus">+</button>
         </span>
       </span>
       <div class="flex mt-8">
-        <button class="add-in-quantity ">Thêm vào giỏ hàng</button>
+        <button class="add-in-quantity" (click)="createOrder(product.id)">Thêm vào giỏ hàng</button>
       </div>
     </div>
   </div>

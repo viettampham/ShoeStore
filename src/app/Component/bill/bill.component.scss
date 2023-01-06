@@ -2,12 +2,10 @@
 *{
   scroll-behavior: smooth;
   font-family: 'Quicksand', sans-serif;
-}
-.hidden{
-  display:none;
-}
-.appear{
-  display: block;
+  transition: 0.4s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 @keyframes up {
   from {
@@ -35,36 +33,6 @@
     transform: scale(1.2)
   }
 }
-.icon-sidebar{
-  @apply text-3xl;
-  color: #2d3436;
-  position: relative;
-  &:hover{
-    opacity: 0.5;
-  }
-  /*&::after{
-    position: absolute;
-   display: block;
-    width: 4px;
-    height: 100%;
-    content: " ";
-    background-color: black;
-    top: 0;
-    left: -20px;
-  }*/
-}
-
-.icon-arrow{
-  @apply text-3xl;
-  color: #2d3436;
-  position: absolute;
-  left: 32px;
-  top: 32px;
-  &:hover{
-    opacity: 0.5;
-  }
-}
-
 @keyframes letright {
   from{
     transform: translateX(-10px);
@@ -141,107 +109,29 @@
     }
   }
   .body{
-    .shop-space-product{
-      @apply h-full;
-      .sidenav{
-        @apply h-full;
-        .sidenav-left{
-          @apply h-full w-1/5 p-5;
-          background-color: #2d3436;
-          .inside-sidenav-left{
-            @apply p-5 h-full;
-            border-radius: 12px;
-            background-color: white;
-            .p-header{
-              @apply text-3xl;
-              color: #2d3436;
-              text-align: center;
-            }
-            .menu-category{
-              @apply mt-8 w-full h-3/5 text-lg;
-              color: #2d3436;
-              .item-menu{
-                @apply my-4 px-3;
-                &:hover{
-                  color: #2d3436;
-                  cursor: pointer;
-                }
-
-                .hidden-section{
-                  display: none;
-                  .hidden-section-menu{
-                    .hiddensection-item{
-                      transition: 0.6s;
-                      &:hover{
-                        color: #ff7675;
-                        opacity: 0.6;
-                        padding: 4px 4px;
-                      }
-                    }
-                  }
-                }
-              }
-              .item-menu:hover .hidden-section{
-                display: block;
-              }
-            }
-          }
+    @apply flex flex-row justify-center items-center;
+    .bill-layout{
+      @apply m-auto w-1/2 my-12;
+      height: 700px;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 2px dashed #636e72;
+      .bill-header{
+        @apply bg-black flex flex-row justify-center items-center;
+        height: 80px;
+        .logo{
+          flex: 3;
+          height: 100%;
         }
-        .sidenav-right{
-          @apply h-full p-5;
-          background-color: #2d3436;
-          .inside-sidenav-right{
-            @apply h-full p-5 bg-white;
-            border-radius: 12px;
-            .header-space-all-product{
-              @apply flex flex-row justify-between items-center;
-              .title-space-product{
-                @apply text-lg;
-              }
-            }
-            .space-display-product{
-              @apply grid grid-cols-4 gap-5 mt-8 px-4;
-              .product{
-                border-radius: 8px;
-                overflow: hidden;
-                cursor: pointer;
-                position: relative;
-                .img-product{
-                }
-                .info-product{
-                  @apply text-white px-4 py-2;
-                  background-color: #2d3436;
-                }
-                .btn-add-product{
-
-                }
-                .model-btn{
-                  @apply w-full h-full flex flex-row justify-evenly items-center;
-                  position: absolute;
-                  transition: 0.5s;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%,-50%);
-                  background-color: rgba(169, 171, 171, 0.53);
-                  display: none;
-                  .btn-add-product{
-                    @apply px-4 py-3 rounded-full text-xl text-white;
-                    background-color: #ff7675;
-                  }
-                  .btn-watch-detail{
-                    @apply px-4 py-3 rounded-full text-xl text-white;
-                    background-color: #2d3436;
-                  }
-                }
-              }
-              .product:hover .model-btn{
-                display: flex;
-                transition: 0.5s;
-              }
-
-            }
-          }
+        .thanks{
+          @apply text-2xl text-center;
+          transform: translatex(-15%);
+          flex: 12;
+          color: white;
         }
+      }
+      .bill-body{
+        @apply p-5
       }
     }
   }

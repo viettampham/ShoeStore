@@ -54,6 +54,7 @@ export class ShopComponent implements OnInit {
   getProduct(){
     this.api.GetProduct().subscribe(res=>{
       this.ListProduct = res
+      console.log(this.ListProduct)
     })
   }
   getCategory(){
