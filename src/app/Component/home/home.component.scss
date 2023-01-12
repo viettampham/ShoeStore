@@ -285,8 +285,11 @@
           border-radius: 4px;
           overflow: hidden;
           .frame-img{
+            height: 70%;
             overflow: hidden;
             .img-product{
+              height: 100%;
+              width: 100%;
               border-radius: 4px;
               &:hover{
                 transform: scale(1.4);
@@ -295,6 +298,7 @@
           }
           .description{
             @apply flex flex-col p-5 text-white;
+            height: 30%;
             background-color: #2d3436;
             .title-product{
               @apply text-xl;

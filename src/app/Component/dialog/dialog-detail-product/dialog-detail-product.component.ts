@@ -7,6 +7,7 @@ import {Order} from "../../../Models/Order";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {CreateOrderRequest} from "../../../Models/CreateOrderRequest";
 import {coerceNumberProperty} from "@angular/cdk/coercion";
+import {style} from "@angular/animations";
 
 @Component({
   selector: 'app-dialog-detail-product',
@@ -27,6 +28,7 @@ export class DialogDetailProductComponent implements OnInit {
   ngOnInit(): void {
     this.api.GetProductById(this.data).subscribe(res=>{
       this.product = res
+      this.product.displayPrice = this.product.price.toLocaleString('vi', {style: 'currency', currency: 'VND'})
     })
     const btnPlus = document.querySelector('.plus');
     const btnMinus = document.querySelector('.minus');

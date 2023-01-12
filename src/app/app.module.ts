@@ -32,7 +32,7 @@ import {MatButtonModule} from "@angular/material/button";
     DialogDetailProductComponent,
     PaymentComponent,
     InfotranferComponent,
-    BillComponent
+    BillComponent,
   ],
     imports: [
         BrowserModule,

@@ -38,7 +38,7 @@
               <button class="btn-bin mt-2 text-red-400" (click)="DeleteOrder(order.id)"><i class="i-bin mx-2 text-base fa-regular fa-trash-can"></i>xóa sản phẩm</button>
             </div>
           </td>
-          <td class="col-price-product col-span-2 flex justify-center items-center">{{order.product.price}}<span>.VND</span></td>
+          <td class="col-price-product col-span-2 flex justify-center items-center">{{order.product.displayPrice}}</td>
           <td class="col-quantity-product col-span-2">
             <div class="group-change-quantity">
               <!--<button class="btn-change-quantity minus">-</button>-->
@@ -46,13 +46,13 @@
               <!--<button class="btn-change-quantity plus">+</button>-->
             </div>
           </td>
-          <td class="col-money-product col-span-2 flex justify-center items-center">{{order.displayTotalMoney}}<span>.VND</span></td>
+          <td class="col-money-product col-span-2 flex justify-center items-center">{{order.displayTotalMoney}}</td>
         </tr>
 
       </table>
       <div class="group-total-money">
         <span class="title-total">Tổng tiền:</span>
-        <span class="total-money">{{displayTotalBill}}<span>.VND</span></span>
+        <span class="total-money">{{displayTotalBill}}</span>
       </div>
       <div class="group-btn">
         <button class="btn btn-continue-shop"><a href="shop"><i class="fa-solid fa-cart-plus"></i> Tiếp tục mua sắm</a></button>

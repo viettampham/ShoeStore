@@ -28,8 +28,6 @@ export class ApiService {
   GetOrder = () => this.httpCLient.get<Order[]>(`${environment.api_domain}/OrderDetail/get-list-order`);
   GetCart = () => this.httpCLient.get<Cart[]>(`${environment.api_domain}/Cart/get-list-cart`);
   DeleteOrder =(id:string)=> this.httpCLient.delete(`${environment.api_domain}/OrderDetail/delete-order/${id}`);
-
-
   getCity  = () => this.httpCLient.get<any>(`${this.host}`+"?depth=1");
   getDistrict = (idCode: number) => this.httpCLient.get<any>(`${this.host}` + "p/" + `${idCode}`+ "?depth=2");
   getWard = (idCode: number) => this.httpCLient.get<any>(`${this.host}` + "d/" + `${idCode}` + "?depth=2");

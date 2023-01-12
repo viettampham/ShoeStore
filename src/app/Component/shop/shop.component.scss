@@ -207,8 +207,11 @@
                 cursor: pointer;
                 position: relative;
                 .img-product{
+                  width: 100%;
+                  height: 63%;
                 }
                 .info-product{
+                  height: 37%;
                   @apply text-white px-4 py-2;
                   background-color: #2d3436;
                 }

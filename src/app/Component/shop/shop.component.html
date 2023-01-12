@@ -43,15 +43,6 @@
                   </ul>
                 </div>
               </li>
-              <li class="item-menu">
-                <p>Loại</p>
-                <div class="hidden-section">
-                  <ul class="hidden-section-menu">
-                    <li class="hiddensection-item">Giày</li>
-                    <li class="hiddensection-item">Dép</li>
-                  </ul>
-                </div>
-              </li>
             </ul>
           </div>
         </mat-drawer>
@@ -68,7 +59,7 @@
                 <div class="info-product">
                   <p class="name-product">{{product.title}}</p>
                   <p class="brand">Brand: {{product.brand}}</p>
-                  <p class="price">Price: {{product.price}}<span>VND</span></p>
+                  <p class="price">Price: {{product.displayPrice}}</p>
                   <p class="size">Size: {{product.size}}</p>
                   <p class="size">Available: {{product.quantityaVailable}}</p>
                 </div>

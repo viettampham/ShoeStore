@@ -51,12 +51,23 @@ export class ShopComponent implements OnInit {
     })
   }
 
+
+
   getProduct(){
     this.api.GetProduct().subscribe(res=>{
       this.ListProduct = res
+      this.ListProduct.forEach(p=>{
+        p.displayPrice = p.price.toLocaleString('vi',{style:'currency',currency:'VND'})
+      })
       console.log(this.ListProduct)
     })
   }
+
+  getProductByCategory(){
+    console.log(this.ListProduct)
+  }
+
+
   getCategory(){
     this.api.GetCategoryProduct().subscribe(res=>{
       this.ListCategory = res

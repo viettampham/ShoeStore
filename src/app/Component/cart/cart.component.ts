@@ -53,15 +53,19 @@ export class CartComponent implements OnInit {
   GetOrder(){
     this.api.GetOrder().subscribe(res=>{
       this.ListOrder = res
+
       this.ListOrder.forEach(o=>{
         o.displayTotalMoney = o.totalMoney.toLocaleString('vi',{style:'currency' , currency:'VND'})
+        // @ts-ignore
+        o.product.displayPrice = o.product.price.toLocaleString('vi',{style:'currency',currency:'VND'})
+        console.log(o.product.price)
+        console.log(o.product.displayPrice)
       })
       /*console.log(this.ListOrder)*/
       this.ListOrder.forEach(order=>{
         this.totalBill = this.totalBill + order.totalMoney
         this.displayTotalBill = this.totalBill.toLocaleString('vi', {style : 'currency', currency : 'VND'})
         /*console.log(this.displayTotalBill);*/
-
       })
     })
   }
