@@ -73,4 +73,22 @@ export class CartComponent implements OnInit {
   hanleCreateBill() {
     this.route.navigate(['infotranfer'])
   }
+
+  trantoCart() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['cart'])
+    }
+  }
+
+  trantoBill() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['bill'])
+    }
+  }
 }

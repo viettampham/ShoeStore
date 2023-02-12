@@ -5,6 +5,7 @@ import {Bill} from "../../Models/Bill";
 import {Observable} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogDetailBillComponent} from "../dialog/dialog-detail-bill/dialog-detail-bill.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-bill',
@@ -16,6 +17,7 @@ export class BillComponent implements OnInit {
   ListBill: any = [];
   constructor(private api:ApiService,
               private dialog:MatDialog,
+              private route:Router,
               private jwtHelperService: JwtHelperService) { }
   ngOnInit(): void {
     this.GetAllNoPayed()
@@ -56,5 +58,23 @@ export class BillComponent implements OnInit {
       this.ListBill = res
       console.log(this.ListBill)
     })
+  }
+
+  trantoCart() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['cart'])
+    }
+  }
+
+  trantoBill() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['bill'])
+    }
   }
 }

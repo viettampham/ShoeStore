@@ -68,4 +68,13 @@ export class HomeComponent implements OnInit {
       this.route.navigate(['cart'])
     }
   }
+
+  trantoBill() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['bill'])
+    }
+  }
 }

@@ -101,12 +101,8 @@ export class ShopComponent implements OnInit {
   handleSearch() {
     // @ts-ignore
     var x = document.forms["search-form"]["text-search"].value
-    this.api.SearchProduct(x).subscribe(res=>{
-      // @ts-ignore
+    this.api.Searchproduct(x).subscribe(res=>{
       this.ListProduct = res
-      this.ListProduct.forEach(p=>{
-        p.displayPrice = p.price.toLocaleString('vi',{style:'currency',currency:'VND'})
-      })
       console.log(this.ListProduct)
     })
   }
@@ -129,5 +125,15 @@ export class ShopComponent implements OnInit {
     this.dialog.open(DialogDetailProductComponent,{
       data:product
     })
+  }
+
+
+  trantoBill() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['bill'])
+    }
   }
 }

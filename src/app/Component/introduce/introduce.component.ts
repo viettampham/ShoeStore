@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-introduce',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroduceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
 
+  trantoCart() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['cart'])
+    }
+  }
+
+  trantoBill() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['bill'])
+    }
+  }
 }

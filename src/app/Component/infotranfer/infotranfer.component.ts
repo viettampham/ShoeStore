@@ -146,4 +146,22 @@ export class InfotranferComponent implements OnInit {
     console.log(this.FormInfoTranfer.value.district)
     console.log(this.FormInfoTranfer.value.ward)
   }
+
+  trantoCart() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['cart'])
+    }
+  }
+
+  trantoBill() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['bill'])
+    }
+  }
 }
