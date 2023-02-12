@@ -5,6 +5,7 @@ import {ApiService} from "../../Services/api.service";
 import {Product} from "../../Models/Product";
 import {Category} from "../../Models/Category";
 import {Brand} from "../../Models/Brand";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-shop',
@@ -16,9 +17,11 @@ export class ShopComponent implements OnInit {
   Product:any;
   ListProduct: Product[] = [];
   ListCategory: Category[]= [];
-  listbrand: Brand[] = [];
+  listbrand: string[] = [];
+  title = '';
   constructor(private dialog:MatDialog,
-              private api:ApiService) { }
+              private api:ApiService,
+              private route:Router) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -54,12 +57,13 @@ export class ShopComponent implements OnInit {
 
 
   getProduct(){
+    this.title = '';
     this.api.GetProduct().subscribe(res=>{
       this.ListProduct = res
       this.ListProduct.forEach(p=>{
         p.displayPrice = p.price.toLocaleString('vi',{style:'currency',currency:'VND'})
       })
-      console.log(this.ListProduct)
+      /*console.log(this.ListProduct)*/
     })
   }
 
@@ -74,9 +78,56 @@ export class ShopComponent implements OnInit {
     })
   }
 
-  openDialogAdd(id:string) {
+
+
+  /*HandleGet(id: string) {
+    this.api.GetProductByCategoryID(id).subscribe(res=>{
+      this.ListProduct = res
+      this.title = res.product.category.name
+      console.log(this.ListProduct)
+      console.log(this.title)
+    })
+  }*/
+
+
+  HandleGetByBrand(brand: string) {
+    this.title = brand
+    this.api.GetProductByBrand(brand).subscribe(res=>{
+      this.ListProduct = res
+      console.log(res)
+    })
+  }
+
+  handleSearch() {
+    // @ts-ignore
+    var x = document.forms["search-form"]["text-search"].value
+    this.api.SearchProduct(x).subscribe(res=>{
+      // @ts-ignore
+      this.ListProduct = res
+      this.ListProduct.forEach(p=>{
+        p.displayPrice = p.price.toLocaleString('vi',{style:'currency',currency:'VND'})
+      })
+      console.log(this.ListProduct)
+    })
+  }
+
+  trantoCart() {
+    const tokenUser = localStorage.getItem('token')
+    if (tokenUser == null){
+      this.route.navigate(['login'])
+    }else{
+      this.route.navigate(['cart'])
+    }
+  }
+
+  HandleGet(category: Category) {
+    this.ListProduct = category.products
+    this.title = category.name
+  }
+
+  openDialogAdd(product: Product) {
     this.dialog.open(DialogDetailProductComponent,{
-      data:id
+      data:product
     })
   }
 }

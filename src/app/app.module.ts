@@ -20,6 +20,12 @@ import { PaymentComponent } from './Component/payment/payment.component';
 import { InfotranferComponent } from './Component/infotranfer/infotranfer.component';
 import { BillComponent } from './Component/bill/bill.component';
 import {MatButtonModule} from "@angular/material/button";
+import {JwtModule} from "@auth0/angular-jwt";
+import { DialogDetailBillComponent } from './Component/dialog/dialog-detail-bill/dialog-detail-bill.component';
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -33,6 +39,7 @@ import {MatButtonModule} from "@angular/material/button";
     PaymentComponent,
     InfotranferComponent,
     BillComponent,
+    DialogDetailBillComponent,
   ],
     imports: [
         BrowserModule,
@@ -46,6 +53,13 @@ import {MatButtonModule} from "@angular/material/button";
         MatDialogModule,
         MatTableModule,
         MatButtonModule,
+        JwtModule.forRoot({
+          config: {
+            tokenGetter: tokenGetter,
+            allowedDomains: ["example.com"],
+            disallowedRoutes: ["http://example.com/examplebadroute/"],
+          },
+        }),
     ],
   providers: [],
   bootstrap: [AppComponent]

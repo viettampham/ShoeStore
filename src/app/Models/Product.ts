@@ -1,26 +1,26 @@
 export class Product{
-  id:string;
-  title:string;
+  productID:string;
+  name:string;
   description:string;
-  image_url:string;
-  size:string;
+  imageURL:string;
+  quantityAvailable:number
   price:number;
-  displayPrice:string;
-  quantityaVailable:number;
+  size:string;
   brand:string;
-  category:string[];
+  categorys:string[];
+  displayPrice:string;
 
 
-  constructor(id: string, title: string, description: string, image_url: string, size: string, price: number, displayPrice: string, quantityaVailable: number, brand: string, category: string[]) {
-    this.id = id;
-    this.title = title;
+  constructor(displayPrice:string ,productID: string, name: string, description: string, imageURL: string, quantityAvailable: number, price: number, size: string, brand: string, categorys: string[]) {
+    this.productID = productID;
+    this.name = name;
     this.description = description;
-    this.image_url = image_url;
-    this.size = size;
+    this.imageURL = imageURL;
+    this.quantityAvailable = quantityAvailable;
     this.price = price;
-    this.displayPrice = displayPrice;
-    this.quantityaVailable = quantityaVailable;
+    this.size = size;
     this.brand = brand;
-    this.category = category;
+    this.categorys = categorys;
+    this.displayPrice = displayPrice
   }
 }

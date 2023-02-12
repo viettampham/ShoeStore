@@ -1,10 +1,10 @@
 <mat-dialog-content class="mat-typography">
   <div class="dialog">
     <div class="img-dialog-product">
-      <img class="img-product" src="{{product.image_url}}" alt="">
+      <img class="img-product" src="{{product.imageURL}}" alt="">
     </div>
     <div class="info-dialog-product">
-      <p class="product-name">{{product.title}}</p>
+      <p class="product-name">{{product.name}}</p>
       <p class="product-descript">{{product.description}}</p>
       <p class="brand">Brand: {{product.brand}}</p>
       <p class="brand">Size: {{product.size}}</p>
@@ -18,7 +18,7 @@
         </span>
       </span>
       <div class="flex mt-8">
-        <button class="add-in-quantity" (click)="createOrder(product.id)">Thêm vào giỏ hàng</button>
+        <button class="add-in-quantity" (click)="createOrder(product.productID)">Thêm vào giỏ hàng</button>
       </div>
     </div>
   </div>

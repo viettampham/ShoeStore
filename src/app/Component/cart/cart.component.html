@@ -8,10 +8,10 @@
       <span class="text-logo">ShoeStore</span>
 
     </div>
-    <div class="group-search">
+    <!--<div class="group-search">
       <input type="text" class="ip-search" placeholder="Tìm kiếm ... ">
       <i class="icon-search fa-solid fa-magnifying-glass"></i>
-    </div>
+    </div>-->
     <ul class="group-user">
       <li class="item"><a href="home">Trang chủ</a></li>
       <li class="item"><a href="shop">Cửa hàng</a></li>
@@ -32,31 +32,30 @@
         </tr>
         <tr class="item-table" *ngFor="let order of ListOrder">
           <td class="col-product col-span-4">
-            <img class="img" src="{{order.product.image_url}}" alt="">
+            <img class="img" src="{{order.imageURL}}" alt="">
             <div class="flex flex-col justify-center items-start">
-              <span class="name-product">{{order.product.title}}</span>
-              <button class="btn-bin mt-2 text-red-400" (click)="DeleteOrder(order.id)"><i class="i-bin mx-2 text-base fa-regular fa-trash-can"></i>xóa sản phẩm</button>
+              <span class="name-product">{{order.name}}</span>
+              <button class="btn-bin mt-2 text-red-400" (click)="DeleteOrderByID(order.orderID)"><i class="i-bin mx-2 text-base fa-regular fa-trash-can"></i>xóa sản phẩm</button>
             </div>
           </td>
-          <td class="col-price-product col-span-2 flex justify-center items-center">{{order.product.displayPrice}}</td>
+          <td class="col-price-product col-span-2 flex justify-center items-center">{{order.displayPrice}}</td>
           <td class="col-quantity-product col-span-2">
             <div class="group-change-quantity">
               <!--<button class="btn-change-quantity minus">-</button>-->
-              <span class="display-num">{{order.quantity}}</span>
+              <span class="display-num">{{order.quantityOrder}}</span>
               <!--<button class="btn-change-quantity plus">+</button>-->
             </div>
           </td>
-          <td class="col-money-product col-span-2 flex justify-center items-center">{{order.displayTotalMoney}}</td>
+          <td class="col-money-product col-span-2 flex justify-center items-center">{{order.displayTotalMoneyOrder}}</td>
         </tr>
-
       </table>
       <div class="group-total-money">
         <span class="title-total">Tổng tiền:</span>
-        <span class="total-money">{{displayTotalBill}}</span>
+        <span class="total-money">{{disPlayTotalCart}}</span>
       </div>
       <div class="group-btn">
         <button class="btn btn-continue-shop"><a href="shop"><i class="fa-solid fa-cart-plus"></i> Tiếp tục mua sắm</a></button>
-        <button class="btn btn-payment"><a href="infotranfer"><i class="fa-brands fa-cc-amazon-pay"></i> Đặt hàng</a></button>
+        <button class="btn btn-payment" (click)="hanleCreateBill()">Đặt hàng</button>
       </div>
     </div>
   </div>

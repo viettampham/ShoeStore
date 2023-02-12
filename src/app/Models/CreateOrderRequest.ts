@@ -1,10 +1,11 @@
 export class CreateOrderRequest{
-  id:string;
-  quantity:number;
+  userID:string;
+  productID:string;
+  quantityOrder:number;
 
-
-  constructor(id: string, quantity: number) {
-    this.id = id;
-    this.quantity = quantity;
+  constructor(userID: string, productID: string, quantityOrder: number) {
+    this.userID = userID;
+    this.productID = productID;
+    this.quantityOrder = quantityOrder;
   }
 }

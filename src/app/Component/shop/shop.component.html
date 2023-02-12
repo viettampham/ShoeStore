@@ -8,15 +8,15 @@
       <img src="http://localhost:1235/logoshop.jpg" alt="" class="logo">
       <span class="text-logo">ShoeStore</span>
     </div>
-    <div class="group-search">
-      <input type="text" class="ip-search" placeholder="Tìm kiếm ... ">
-      <i class="icon-search fa-solid fa-magnifying-glass"></i>
-    </div>
+    <form class="group-search" name="search-form">
+      <input type="text" class="ip-search" name="text-search" placeholder="Tìm kiếm ... ">
+      <i class="icon-search fa-solid fa-magnifying-glass" (click)="handleSearch()"></i>
+    </form>
     <ul class="group-user">
       <li class="item"><a href="home">Trang chủ</a></li>
       <li class="item"><a href="shop">Cửa hàng</a></li>
       <li class="item"><a href="introduce">Giới thiệu</a></li>
-      <li class="item"><a href="cart"><i class="icon fa-solid fa-cart-shopping"></i></a></li>
+      <li class="item"><i (click)="trantoCart()" class="icon fa-solid fa-cart-shopping"></i></li>
       <li class="item"><i class="icon fa-solid fa-user"></i></li>
     </ul>
   </div>
@@ -31,7 +31,7 @@
                 <p>Thể loại sản phẩm</p>
                 <div class="hidden-section">
                   <ul class="hidden-section-menu">
-                    <li class="hiddensection-item" *ngFor="let category of ListCategory"><i class="fa-solid fa-shoe-prints"></i> {{category.title}}</li>
+                    <li class="hiddensection-item" (click)="HandleGet(category)" *ngFor="let category of ListCategory"><i class="fa-solid fa-shoe-prints"></i> {{category.name}}</li>
                   </ul>
                 </div>
               </li>
@@ -39,7 +39,7 @@
                 <p>Nhãn hàng sản phẩm</p>
                 <div class="hidden-section">
                   <ul class="hidden-section-menu">
-                    <li class="hiddensection-item" *ngFor="let brand of listbrand">{{brand}}</li>
+                    <li class="hiddensection-item" *ngFor="let brand of listbrand" (click)="HandleGetByBrand(brand)">{{brand}}</li>
                   </ul>
                 </div>
               </li>
@@ -51,21 +51,21 @@
             <div class="header-space-all-product">
               <button (click)="opened=!opened"><i class="fa-solid fa-bars icon-sidebar"></i></button>
               <button (click)="opened=!opened"><i class="fa-regular fa-circle-xmark icon icon-arrow hidden"></i></button>
-              <span class="title-space-product">Tất cả sản phẩm</span>
+              <span class="title-space-product"><span class="cursor-pointer" (click)="getProduct()">Tất cả sản phẩm / </span>{{title}}</span>
             </div>
             <div class="space-display-product">
               <div class="product" *ngFor="let product of ListProduct">
-                <img class="img-product" src="{{product.image_url}}" alt="">
+                <img class="img-product" src="{{product.imageURL}}" alt="">
                 <div class="info-product">
-                  <p class="name-product">{{product.title}}</p>
+                  <p class="name-product">{{product.name}}</p>
                   <p class="brand">Brand: {{product.brand}}</p>
                   <p class="price">Price: {{product.displayPrice}}</p>
                   <p class="size">Size: {{product.size}}</p>
-                  <p class="size">Available: {{product.quantityaVailable}}</p>
+                  <p class="size">Available: {{product.quantityAvailable}}</p>
                 </div>
                 <div class="model-btn">
-                  <button class="btn-handle btn-add-product" (click)="openDialogAdd(product.id)"><i class="fa-solid fa-plus"></i></button>
-                  <button class="btn-handle btn-watch-detail" (click)="openDialogAdd(product.id)"><i class="fa-solid fa-circle-info"></i></button>
+                  <button class="btn-handle btn-add-product" (click)="openDialogAdd(product)"><i class="fa-solid fa-plus"></i></button>
+                  <button class="btn-handle btn-watch-detail" (click)="openDialogAdd(product)"><i class="fa-solid fa-circle-info"></i></button>
                 </div>
               </div>
 

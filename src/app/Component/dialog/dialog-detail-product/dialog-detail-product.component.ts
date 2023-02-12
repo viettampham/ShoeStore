@@ -8,6 +8,8 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {CreateOrderRequest} from "../../../Models/CreateOrderRequest";
 import {coerceNumberProperty} from "@angular/cdk/coercion";
 import {style} from "@angular/animations";
+import {JwtHelperService} from "@auth0/angular-jwt";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dialog-detail-product',
@@ -17,19 +19,21 @@ import {style} from "@angular/animations";
 export class DialogDetailProductComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
               private api:ApiService,
+              private route:Router,
               private dialogRef:MatDialogRef<DialogDetailProductComponent>,
-              private fb:FormBuilder) { }
+              private fb:FormBuilder,
+              private jwtHelperService: JwtHelperService) { }
   product : Product = this.data;
   numberOrder :number = 1;
   formCreateOrder = this.fb.group({
-    productId:[''],
-    quantity:[]
+    userID:[''],
+    productID:[''],
+    quantityOrder:[]
   })
   ngOnInit(): void {
-    this.api.GetProductById(this.data).subscribe(res=>{
-      this.product = res
-      this.product.displayPrice = this.product.price.toLocaleString('vi', {style: 'currency', currency: 'VND'})
-    })
+    /*console.log(this.product)*/
+
+    //chinh so luong san pham
     const btnPlus = document.querySelector('.plus');
     const btnMinus = document.querySelector('.minus');
     const displaynum = document.querySelector('.num');
@@ -67,10 +71,17 @@ export class DialogDetailProductComponent implements OnInit {
         // @ts-ignore
         displaynum.innerText = quantity;
       }
-      console.log(quantity)
-
+      /*console.log(quantity)*/
     })
   }
+
+  public token = () => {
+    const token = localStorage.getItem('token') ?? '';
+    const objectToken = this.decodeToken(token);
+    return objectToken;
+  }
+
+  public decodeToken = (rawToken: string) => this.jwtHelperService?.decodeToken(rawToken);
 
 
   closeDialog() {
@@ -79,17 +90,22 @@ export class DialogDetailProductComponent implements OnInit {
 
 
   createOrder(id:string){
-    this.formCreateOrder.value.productId = id;
+    const tokenObj = this.token();
+    // @ts-ignore
+    var userID = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
+    var displayname = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+
+    this.formCreateOrder.value.userID = userID;
+    this.formCreateOrder.value.productID = id;
 
     // @ts-ignore
-    this.formCreateOrder.value.quantity = this.numberOrder;
+    this.formCreateOrder.value.quantityOrder = this.numberOrder;
     // @ts-ignore
     this.api.CreateOrder(this.formCreateOrder.value as CreateOrderRequest).subscribe(res=>{
       alert("Thêm vào giỏ hàng thành công")
       this.dialogRef.close()
     },error => {
-      alert("Error")
-    })
+      alert("Error")    })
   }
 
 

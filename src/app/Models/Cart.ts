@@ -1,16 +1,16 @@
 import {Order} from "./Order";
 
 export class Cart{
-  cartId:string;
-  orderDetails:Order[];
-  quantity:number;
-  totalmoney:number;
+  cartID:string;
+  userID:string;
+  totalMoneyCart:number;
+  orders: Order[];
 
 
-  constructor(cartId: string, orderDetails: Order[], quantity: number, totalmoney: number) {
-    this.cartId = cartId;
-    this.orderDetails = orderDetails;
-    this.quantity = quantity;
-    this.totalmoney = totalmoney;
+  constructor(cartID: string, userID: string, orders: Order[], totalMoneyCart: number) {
+    this.cartID = cartID;
+    this.userID = userID;
+    this.orders = orders;
+    this.totalMoneyCart = totalMoneyCart;
   }
 }

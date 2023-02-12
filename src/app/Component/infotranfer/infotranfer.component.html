@@ -48,15 +48,15 @@
           <p class="title-content-right">Đơn hàng của bạn</p>
           <div class="over-view">
             <div class="detail-order" *ngFor="let order of ListOrder">
-              <img class="img-detail-order" src="{{order.product.image_url}}" alt="">
-              <span class="name-product-detail-order">{{order.product.title}}</span>
-              <span class="price-product-detail-order">{{order.totalMoney}}<span>.VND</span></span>
-              <span class="quantity-product-order">{{order.quantity}}</span>
+              <img class="img-detail-order" src="{{order.imageURL}}" alt="">
+              <span class="name-product-detail-order">{{order.name}}</span>
+              <span class="price-product-detail-order">{{order.displayTotalMoneyOrder}}</span>
+              <span class="quantity-product-order">{{order.quantityOrder}}</span>
             </div>
           </div>
           <div class="total-payment">
             <span class="mr-8">Tổng cộng: </span>
-            <span class="total-money">{{totalBill}}<span>.VND</span></span>
+            <span class="total-money">{{displayTotalBill}}</span>
           </div>
           <div class="group-btn">
             <button class="btn btn-continue-shop"><a href="shop">Tiếp tục mua sắm</a></button>

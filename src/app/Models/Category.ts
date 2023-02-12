@@ -1,9 +1,14 @@
-export class Category{
-  id:string;
-  title:string;
+import {Product} from "./Product";
 
-  constructor(id: string, title: string) {
-    this.id = id;
-    this.title = title;
+export class Category{
+  categoryID:string;
+  name:string;
+  products:Product[]
+
+
+  constructor(categoryID: string, name: string, products: Product[]) {
+    this.categoryID = categoryID;
+    this.name = name;
+    this.products = products;
   }
 }

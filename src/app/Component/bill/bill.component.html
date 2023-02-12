@@ -21,16 +21,16 @@
     </ul>
   </div>
   <div class="body">
-    <div class="bill-layout">
-      <div class="bill-header">
-        <img class="logo" src="http://localhost:1235/logoshop.jpg" alt="logo">
-        <span class="thanks">Cảm ơn đã đặt hàng</span>
-      </div>
-      <div class="bill-body">
-        <p>Thông tin người nhận hàng</p>
-        <p class="">Người nhận : </p>
-        <p class="">Số điện thoại : </p>
-        <p class="">Địa chỉ : </p>
+    <div class="menubill">
+      <p class="title" (click)="GetAllNoPayed()">Hóa đơn chưa thanh toán</p>
+      <p class="title" (click)="GetAllPayed()">Lịch sử mua hàng</p>
+    </div>
+    <div class="listBill">
+      <div class="bill" *ngFor="let bill of ListBill">
+        <div class="span">Tên người nhận : {{bill.nameCustomer}}</div>
+        <div class="span">Địa chỉ giao hàng : {{bill.addressTranfer}}</div>
+        <div class="span">Tổng tiền : {{bill.totalBill}}</div>
+        <button class="btn-detailbill" (click)="ViewDetailBill(bill)">Xem chi tiết</button>
       </div>
     </div>
   </div>

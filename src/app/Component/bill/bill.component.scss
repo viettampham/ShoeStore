@@ -109,29 +109,26 @@
     }
   }
   .body{
-    @apply flex flex-row justify-center items-center;
-    .bill-layout{
-      @apply m-auto w-1/2 my-12;
-      height: 700px;
-      overflow: hidden;
-      border-radius: 8px;
-      border: 2px dashed #636e72;
-      .bill-header{
-        @apply bg-black flex flex-row justify-center items-center;
-        height: 80px;
-        .logo{
-          flex: 3;
-          height: 100%;
-        }
-        .thanks{
-          @apply text-2xl text-center;
-          transform: translatex(-15%);
-          flex: 12;
-          color: white;
-        }
+    @apply min-h-screen;
+    .menubill{
+      @apply flex flex-row justify-between items-center;
+      .title{
+        @apply text-2xl my-5 px-12 cursor-pointer;
       }
-      .bill-body{
-        @apply p-5
+    }
+    .listBill{
+      @apply px-12 grid grid-cols-3 gap-5;
+      .bill{
+        @apply p-4 flex flex-col justify-between;
+        border-radius: 4px;
+        background-color: #dfe6e9;
+        height: 200px;
+        .btn-detailbill{
+          border-radius: 4px;
+          background-color: #fab1a0;
+          color: white;
+          @apply py-2;
+        }
       }
     }
   }

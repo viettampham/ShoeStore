@@ -8,15 +8,15 @@
       <span class="text-logo">ShoeStore</span>
 
     </div>
-    <div class="group-search">
+    <!--<div class="group-search">
       <input type="text" class="ip-search" placeholder="Tìm kiếm ... ">
       <i class="icon-search fa-solid fa-magnifying-glass"></i>
-    </div>
+    </div>-->
     <ul class="group-user">
       <li class="item"><a href="home">Trang chủ</a></li>
       <li class="item"><a href="shop">Cửa hàng</a></li>
       <li class="item"><a href="introduce">Giới thiệu</a></li>
-      <li class="item"><a href="cart"><i class="icon fa-solid fa-cart-shopping"></i></a></li>
+      <li class="item"><i (click)="trantoCart()" class="icon fa-solid fa-cart-shopping"></i></li>
       <li class="item"><i class="icon fa-solid fa-user"></i></li>
     </ul>
   </div>
@@ -53,11 +53,11 @@
       <div class="section section-1">
         <div class="brand bran1">
           <img src="https://bizweb.dktcdn.net/100/342/645/themes/701397/assets/banner_project_1.jpg?1664094665337" alt="">
-          <span class="title-brand">Giày Nike</span>
+          <span class="title-brand" (click)="getNike()">Giày Nike</span>
         </div>
         <div class="brand bran2">
           <img src="https://bizweb.dktcdn.net/100/342/645/themes/701397/assets/banner_project_2.jpg?1664094665337" alt="">
-          <span class="title-brand">Giày Yzee</span>
+          <span class="title-brand">Giày Adidas</span>
         </div>
       </div>
       <div class="section section-2">
@@ -86,10 +86,10 @@
       <div class="products">
         <div class="product" *ngFor="let product of ListProductDisplay">
           <div class="frame-img">
-            <img class="img-product" src="{{product.image_url}}" alt="sp1">
+            <img class="img-product" src="{{product.imageURL}}" alt="sp1">
           </div>
           <div class="description">
-            <span class="title-product">{{product.title}}</span>
+            <span class="title-product">{{product.name}}</span>
             <span class="size"> <span>Size : </span>{{product.size}}</span>
             <span class="price">{{product.displayPrice}}</span>
           </div>

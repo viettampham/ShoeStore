@@ -4,6 +4,7 @@ import {ApiService} from "../../Services/api.service";
 import {LoginRequest} from "../../Models/LoginRequest";
 import {Router} from "@angular/router";
 import {RegistrationRequest} from "../../Models/RegistrationRequest";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb:FormBuilder,
               private apiServices :ApiService,
-              private route:Router) {
+              private route:Router,
+              private jwtHelperService: JwtHelperService) {
   }
 
   ngOnInit(): void {
@@ -61,12 +63,28 @@ export class LoginComponent implements OnInit {
   Login() {
     this.apiServices.Login(this.LoginForm.value as LoginRequest).subscribe(res=>{
       if (res.token!=null){
-        this.route.navigate(['/home'])
+        localStorage.setItem("token",res?.token);
+        this.route.navigate(['home'])
+        const tokenObj = this.token();
+        // @ts-ignore
+        var userID = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
+        var displayname = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+        console.log(tokenObj)
+        console.log(userID)
+        console.log(displayname)
       }
     },error => {
       alert("Username or password incorrect")
     })
   }
+
+  public token = () => {
+    const token = localStorage.getItem('token') ?? '';
+    const objectToken = this.decodeToken(token);
+    return objectToken;
+  }
+
+  public decodeToken = (rawToken: string) => this.jwtHelperService?.decodeToken(rawToken);
 
   Signin() {
     if (this.SigninForm.value.confirmpassword != this.SigninForm.value.password){

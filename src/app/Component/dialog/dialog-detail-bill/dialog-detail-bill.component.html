@@ -1,0 +1,39 @@
+<div class="layout-dialog">
+  <div class="header">
+    <p class="">Hóa đơn của bạn</p>
+  </div>
+  <div class="body-dialog">
+    <p>Sản phẩm order</p>
+    <table class="table-cart-product">
+      <tr class="title-table">
+        <th class="col-product text-left col-span-4">Sản phẩm</th>
+        <th class="col-price-product col-span-2">Giá</th>
+        <th class="col-quantity-product col-span-2">Số lượng</th>
+        <th class="col-money-product col-span-2">Thành tiền</th>
+      </tr>
+      <tr class="item-table" *ngFor="let order of data.orders">
+        <td class="col-product col-span-4">
+          <img class="img" src="{{order.imageURL}}" alt="">
+          <div class="flex flex-col justify-center items-start">
+            <span class="name-product">{{order.name}}</span>
+            <button class="btn-bin mt-2 text-red-400"><i class="i-bin mx-2 text-base fa-regular fa-trash-can"></i>xóa sản phẩm</button>
+          </div>
+        </td>
+        <td class="col-price-product col-span-2 flex justify-center items-center">{{order.price}}</td>
+        <td class="col-quantity-product col-span-2">
+          <div class="group-change-quantity">
+            <!--<button class="btn-change-quantity minus">-</button>-->
+            <span class="display-num">{{order.quantityOrder}}</span>
+            <!--<button class="btn-change-quantity plus">+</button>-->
+          </div>
+        </td>
+        <td class="col-money-product col-span-2 flex justify-center items-center">{{order.totalMoney}}</td>
+      </tr>
+    </table>
+    <p class="text float-right totalbill">Tổng tiền : {{data.totalBill}}</p>
+    <p class="text">Địa chỉ giao hàng : {{data.addressTranfer}}</p>
+    <p class="text">Người nhận : {{data.nameCustomer}}</p>
+    <p class="text">Số điện thoại : {{data.phoneNumber}}</p>
+    <button *ngIf="!ispayed" class="btn-confirm" (click)="ConfirmBill(data.billID)">Xác minh nhận hàng</button>
+  </div>
+</div>
