@@ -48,6 +48,9 @@
           </div>
         </mat-drawer>
         <mat-drawer-content class="sidenav-right">
+          <router-outlet *ngIf="isLoadding">
+            <app-loading></app-loading>
+          </router-outlet>
           <div class="inside-sidenav-right">
             <div class="header-space-all-product">
               <button (click)="opened=!opened"><i class="fa-solid fa-bars icon-sidebar"></i></button>

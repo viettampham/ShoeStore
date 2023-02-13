@@ -58,17 +58,15 @@ export class ShopComponent implements OnInit {
 
   getProduct(){
     this.title = '';
+    this.isLoadding = true;
     this.api.GetProduct().subscribe(res=>{
       this.ListProduct = res
+      this.isLoadding = false
       this.ListProduct.forEach(p=>{
         p.displayPrice = p.price.toLocaleString('vi',{style:'currency',currency:'VND'})
       })
       /*console.log(this.ListProduct)*/
     })
-  }
-
-  getProductByCategory(){
-    console.log(this.ListProduct)
   }
 
 
@@ -78,16 +76,7 @@ export class ShopComponent implements OnInit {
     })
   }
 
-
-
-  /*HandleGet(id: string) {
-    this.api.GetProductByCategoryID(id).subscribe(res=>{
-      this.ListProduct = res
-      this.title = res.product.category.name
-      console.log(this.ListProduct)
-      console.log(this.title)
-    })
-  }*/
+  isLoadding = false;
 
 
   HandleGetByBrand(brand: string) {

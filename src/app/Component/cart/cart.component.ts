@@ -39,6 +39,7 @@ export class CartComponent implements OnInit {
   }
 
   public decodeToken = (rawToken: string) => this.jwtHelperService?.decodeToken(rawToken);
+  isLoadding = true;
 
   GetOrder(){
     const tokenObj = this.token();

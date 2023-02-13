@@ -22,6 +22,7 @@ import { BillComponent } from './Component/bill/bill.component';
 import {MatButtonModule} from "@angular/material/button";
 import {JwtModule} from "@auth0/angular-jwt";
 import { DialogDetailBillComponent } from './Component/dialog/dialog-detail-bill/dialog-detail-bill.component';
+import { LoadingComponent } from './Component/loading/loading.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -40,6 +41,7 @@ export function tokenGetter() {
     InfotranferComponent,
     BillComponent,
     DialogDetailBillComponent,
+    LoadingComponent,
   ],
     imports: [
         BrowserModule,
