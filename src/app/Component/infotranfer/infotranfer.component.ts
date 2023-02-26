@@ -135,6 +135,7 @@ export class InfotranferComponent implements OnInit {
     this.api.CreateBill(this.FormCreateBill.value as CreateBillRequest)
       .subscribe(res=>{
         alert("Success")
+        this.route.navigate(['bill'])
       },error => {
         alert("error")
       })

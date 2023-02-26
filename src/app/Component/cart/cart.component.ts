@@ -15,6 +15,8 @@ export class CartComponent implements OnInit {
   ListOrder:Order[] = [];
   totalCart:number = 0;
   disPlayTotalCart:any;
+  nothingPage = false
+
   // @ts-ignore
   Cart : Cart;
   FormAddBill = this.fb.group({
@@ -30,6 +32,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetOrder();
+
   }
 
   public token = () => {
@@ -40,6 +43,7 @@ export class CartComponent implements OnInit {
 
   public decodeToken = (rawToken: string) => this.jwtHelperService?.decodeToken(rawToken);
   isLoadding = true;
+  // @ts-ignore
 
   GetOrder(){
     const tokenObj = this.token();
@@ -48,15 +52,20 @@ export class CartComponent implements OnInit {
 
     this.api.GetOrderByUser(userID).subscribe(res=>{
       this.ListOrder = res
+      if (this.ListOrder.length == 0){
+        this.nothingPage = true
+      }
+      if (this.ListOrder.length > 0){
+        this.nothingPage = false
+      }
+      console.log(this.ListOrder.length)
+      console.log(this.nothingPage)
       this.ListOrder.forEach(o=>{
         o.displayPrice = o.price.toLocaleString('vi',{style:'currency',currency:'VND'})
         o.displayTotalMoneyOrder = o.totalMoney.toLocaleString('vi',{style:'currency',currency:'VND'})
        this.totalCart = this.totalCart + o.totalMoney
       })
       this.disPlayTotalCart = this.totalCart.toLocaleString('vi', { style: 'currency', currency: 'VND' })
-      /*console.log(this.ListOrder)
-      console.log(this.totalCart)
-      console.log(this.ListOrder)*/
     })
   }
 

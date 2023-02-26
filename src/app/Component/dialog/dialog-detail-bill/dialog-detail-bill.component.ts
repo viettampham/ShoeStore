@@ -34,6 +34,6 @@ export class DialogDetailBillComponent implements OnInit {
     this.api.ConfirmBill(billID).subscribe(res=>{
       alert("Success")
       location.reload()
-    })
+    },error => alert("error"))
   }
 }

@@ -22,7 +22,11 @@
     </ul>
   </div>
   <div class="body">
-    <div class="space-cart">
+    <div class="" *ngIf="nothingPage">
+      <div style="margin-top: 20%;" class="text-red-400 text-3xl w-full text-center" *ngIf="nothingPage">Không có mục nào để hiển thị</div>
+      <div class="text-red-400 text-3xl w-full text-center" *ngIf="nothingPage"><i class="fa-regular fa-face-tired"></i></div>
+    </div>
+    <div *ngIf="!nothingPage" class="space-cart">
       <p class="header-space-cart">Giỏ hàng của bạn</p>
       <table class="table-cart-product">
         <tr class="title-table">

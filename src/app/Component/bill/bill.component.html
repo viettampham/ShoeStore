@@ -8,10 +8,6 @@
       <span class="text-logo">ShoeStore</span>
 
     </div>
-    <div class="group-search">
-      <input type="text" class="ip-search" placeholder="Tìm kiếm ... ">
-      <i class="icon-search fa-solid fa-magnifying-glass"></i>
-    </div>
     <ul class="group-user">
       <li class="item"><a href="home">Trang chủ</a></li>
       <li class="item"><a href="shop">Cửa hàng</a></li>
@@ -26,8 +22,10 @@
       <p class="title" (click)="GetAllNoPayed()">Hóa đơn chưa thanh toán</p>
       <p class="title" (click)="GetAllPayed()">Lịch sử mua hàng</p>
     </div>
+    <div style="margin-top: 20%;" class="text-red-400 text-3xl w-full text-center" *ngIf="nothingPage">Không có mục nào để hiển thị</div>
+
     <div class="listBill">
-      <div class="bill" *ngFor="let bill of ListBill">
+      <div class="bill" style="background-color: {{randomColor()}}" *ngFor="let bill of ListBill">
         <div class="span">Tên người nhận : {{bill.nameCustomer}}</div>
         <div class="span">Địa chỉ giao hàng : {{bill.addressTranfer}}</div>
         <div class="span">Tổng tiền : {{bill.totalBill}}</div>

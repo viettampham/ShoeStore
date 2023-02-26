@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     console.log(tokenObj)
     console.log(userID)
     console.log(displayname)
+    this.displayname = displayname
    this.api.GetProduct().subscribe(res=>{
      this.ListProduct = res
      this.ListProduct.forEach(p=>{
@@ -47,6 +48,7 @@ export class HomeComponent implements OnInit {
   }
 
   public decodeToken = (rawToken: string) => this.jwtHelperService?.decodeToken(rawToken);
+  displayname: any;
 
 
   getNike() {

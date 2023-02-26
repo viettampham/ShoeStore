@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from "../../Services/api.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {Bill} from "../../Models/Bill";
-import {Observable} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogDetailBillComponent} from "../dialog/dialog-detail-bill/dialog-detail-bill.component";
 import {Router} from "@angular/router";
@@ -20,9 +18,11 @@ export class BillComponent implements OnInit {
               private route:Router,
               private jwtHelperService: JwtHelperService) { }
   ngOnInit(): void {
-    this.GetAllNoPayed()
+    this.GetAllNoPayed();
   }
 
+
+  nothingPage = false
   GetAllNoPayed(){
     const tokenObj = this.token();
     // @ts-ignore
@@ -30,6 +30,12 @@ export class BillComponent implements OnInit {
 
     this.api.GetBillNoPayedUser(userID).subscribe(res=>{
       this.ListBill = res
+      if (this.ListBill.length == 0){
+        this.nothingPage = true
+      }
+      if (this.ListBill.length > 0){
+        this.nothingPage = false
+      }
       // @ts-ignore
       console.log(this.ListBill)
     })
@@ -56,6 +62,12 @@ export class BillComponent implements OnInit {
 
     this.api.GetBillPayedUser(userID).subscribe(res=>{
       this.ListBill = res
+      if (this.ListBill.length == 0){
+        this.nothingPage = true
+      }
+      if (this.ListBill.length > 0){
+        this.nothingPage = false
+      }
       console.log(this.ListBill)
     })
   }
@@ -76,5 +88,14 @@ export class BillComponent implements OnInit {
     }else{
       this.route.navigate(['bill'])
     }
+  }
+
+
+  randomColor() {
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += Math.floor(Math.random() * 10);
+    }
+    return color;
   }
 }
