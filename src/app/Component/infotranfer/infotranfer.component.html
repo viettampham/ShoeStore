@@ -29,7 +29,7 @@
           <form class="form-info-tranfer" name="forminfo">
             <input [autofocus]="true" [required] name="infoRecipient" class="select-element infoRecipient" type="text" placeholder="Người nhận...">
             <input required name="phoneNumber" class="select-element phoneNumber" type="text" placeholder="Số điện thoại...">
-            <select class="select-info-city select-element" name="city" id="city" (change)="GetDistrict($event)">
+            <select class="select-info-city select-element" name="city" id="city" (change)="GetDistrict($event)" >
               <option [defaultSelected]="true" >--Chọn thành phố--</option>
               <option value="{{city.code}}" *ngFor="let city of citys">{{city.name}}</option>
             </select>
@@ -62,6 +62,7 @@
           <div class="group-btn">
             <button class="btn btn-continue-shop"><a href="shop">Tiếp tục mua sắm</a></button>
             <button class="btn btn-order" (click)="Book()">Đặt hàng</button>
+            <button class="btn btn-order" (click)="GetCity()">Đặt hàng</button>
           </div>
         </div>
       </div>

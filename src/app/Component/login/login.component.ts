@@ -69,9 +69,9 @@ export class LoginComponent implements OnInit {
         // @ts-ignore
         var userID = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
         var displayname = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-        console.log(tokenObj)
+        /*console.log(tokenObj)
         console.log(userID)
-        console.log(displayname)
+        console.log(displayname)*/
       }
     },error => {
       alert("Username or password incorrect")

@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
     const tokenObj = this.token();
     var userID = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
     var displayname = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-    console.log(tokenObj)
-    console.log(userID)
-    console.log(displayname)
+    //console.log(tokenObj)
+    //console.log(userID)
+    //.log(displayname)
     this.displayname = displayname
    this.api.GetProduct().subscribe(res=>{
      this.ListProduct = res
@@ -53,13 +53,13 @@ export class HomeComponent implements OnInit {
 
   getNike() {
     this.route.navigate(['/shop'])
-    console.log(this.ListProduct)
+    //console.log(this.ListProduct)
     this.ListProduct.forEach(p=>{
       if (p.brand == 'Nike'){
         this.ListProductTarget.push(p)
       }
     })
-    console.log(this.ListProductTarget)
+    //console.log(this.ListProductTarget)
   }
 
   trantoCart() {

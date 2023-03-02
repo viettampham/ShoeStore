@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {style} from "@angular/animations";
 import {Order} from "../../../Models/Order";
 import {ApiService} from "../../../Services/api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dialog-detail-bill',
@@ -13,12 +14,13 @@ export class DialogDetailBillComponent implements OnInit {
   ispayed = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
-              private api:ApiService) { }
+              private api:ApiService,
+              private route:Router) { }
 
   ngOnInit(): void {
-    console.log(this.data)
+    //console.log(this.data)
     this.ispayed = this.data.isPayed
-    console.log(this.ispayed)
+    //console.log(this.ispayed)
     // @ts-ignore
     this.data.forEach(b=>{
       // @ts-ignore
@@ -30,10 +32,11 @@ export class DialogDetailBillComponent implements OnInit {
   }
 
   ConfirmBill(billID: any) {
-    console.log(billID)
+    //console.log(billID)
     this.api.ConfirmBill(billID).subscribe(res=>{
       alert("Success")
       location.reload()
     },error => alert("error"))
+    this.route.navigate(['shop'])
   }
 }

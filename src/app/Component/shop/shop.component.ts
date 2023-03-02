@@ -83,7 +83,7 @@ export class ShopComponent implements OnInit {
     this.title = brand
     this.api.GetProductByBrand(brand).subscribe(res=>{
       this.ListProduct = res
-      console.log(res)
+      //console.log(res)
     })
   }
 
@@ -92,7 +92,7 @@ export class ShopComponent implements OnInit {
     var x = document.forms["search-form"]["text-search"].value
     this.api.Searchproduct(x).subscribe(res=>{
       this.ListProduct = res
-      console.log(this.ListProduct)
+      //console.log(this.ListProduct)
     })
   }
 

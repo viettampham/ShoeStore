@@ -54,7 +54,7 @@ export class DialogDetailProductComponent implements OnInit {
       displaynum.innerText = quantity
       // @ts-ignore
       btnMinus.classList.remove('disable')
-      console.log(quantity)
+      //console.log(quantity)
     })
     // @ts-ignore
     btnMinus.addEventListener('click',()=>{

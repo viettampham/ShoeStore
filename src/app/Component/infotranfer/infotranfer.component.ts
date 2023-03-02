@@ -41,6 +41,7 @@ export class InfotranferComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetOrder();
+    this.GetCity()
   }
   public token = () => {
     const token = localStorage.getItem('token') ?? '';
@@ -72,8 +73,7 @@ export class InfotranferComponent implements OnInit {
   GetCity() {
     this.api.getCity().subscribe(res => {
       this.citys = res;
-      /*console.log(this.citys)*/
-
+      //console.log(this.citys)
     })
   }
 
@@ -81,7 +81,7 @@ export class InfotranferComponent implements OnInit {
     this.api.getDistrict(event.target?.value).subscribe(res => {
       this.quans = res
       this.FormInfoTranfer.value.city = this.quans.name
-      /*console.log(this.FormInfoTranfer.value.city)*/
+      //console.log(this.FormInfoTranfer.value.city)
     })
   }
 
@@ -108,9 +108,9 @@ export class InfotranferComponent implements OnInit {
     // @ts-ignore
     var y = document.forms["forminfo"]["phoneNumber"].value
 
-    /*if (x == '') {
+    if (x == '') {
       alert("Bạn chưa nhập thông tin người nhận.")
-      /!*location.reload()*!/
+      /*location.reload()*/
     } else if (y == '') {
       alert("Bạn chưa nhập số điện thoại liên lạc.")
     } else if (this.FormInfoTranfer.value.city == '') {
@@ -121,14 +121,15 @@ export class InfotranferComponent implements OnInit {
       alert("Bạn chưa nhập xã.")
     } else {
       this.route.navigate(['/bill'])
-    }*/
+    }
+
     const tokenObj = this.token();
     // @ts-ignore
     var userID = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
 
     this.FormCreateBill.value.userID = userID;
     // @ts-ignore
-    this.FormCreateBill.value.addressTranfer = this.FormInfoTranfer.value.city + this.FormInfoTranfer.value.ward + this.FormInfoTranfer.value.district
+    this.FormCreateBill.value.addressTranfer = this.FormInfoTranfer.value.city +" - "+ this.FormInfoTranfer.value.ward +" - "+ this.FormInfoTranfer.value.district
     this.FormCreateBill.value.nameCustomer = x
     this.FormCreateBill.value.phoneNumber = y
 
@@ -140,12 +141,12 @@ export class InfotranferComponent implements OnInit {
         alert("error")
       })
     // @ts-ignore
-    console.log(this.FormCreateBill.value)
+    /*console.log(this.FormCreateBill.value)
     console.log(x)
     console.log(y)
     console.log(this.FormInfoTranfer.value.city)
     console.log(this.FormInfoTranfer.value.district)
-    console.log(this.FormInfoTranfer.value.ward)
+    console.log(this.FormInfoTranfer.value.ward)*/
   }
 
   trantoCart() {

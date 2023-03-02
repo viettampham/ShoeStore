@@ -58,8 +58,8 @@ export class CartComponent implements OnInit {
       if (this.ListOrder.length > 0){
         this.nothingPage = false
       }
-      console.log(this.ListOrder.length)
-      console.log(this.nothingPage)
+      //console.log(this.ListOrder.length)
+      //console.log(this.nothingPage)
       this.ListOrder.forEach(o=>{
         o.displayPrice = o.price.toLocaleString('vi',{style:'currency',currency:'VND'})
         o.displayTotalMoneyOrder = o.totalMoney.toLocaleString('vi',{style:'currency',currency:'VND'})
@@ -70,7 +70,7 @@ export class CartComponent implements OnInit {
   }
 
   DeleteOrderByID(orderID: string) {
-    console.log(orderID)
+    //console.log(orderID)
     if (confirm("Bạn có muốn xóa sản phầm này khỏi giỏ hàng ?")){
       this.api.DeleteOrderByID(orderID).subscribe(res=>{
         alert("Xóa thành công")

@@ -37,7 +37,7 @@ export class BillComponent implements OnInit {
         this.nothingPage = false
       }
       // @ts-ignore
-      console.log(this.ListBill)
+      //console.log(this.ListBill)
     })
   }
 
@@ -68,7 +68,7 @@ export class BillComponent implements OnInit {
       if (this.ListBill.length > 0){
         this.nothingPage = false
       }
-      console.log(this.ListBill)
+      //console.log(this.ListBill)
     })
   }
 
